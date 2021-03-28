@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require("path");
 
 module.exports = {
     entry: "./src/index.js",
@@ -16,7 +15,19 @@ module.exports = {
                     "sass-loader" // step 1: turns sass into css
                 ],
             },
-        ],
+            {
+                test: /\.html$/i,
+                loader: "html-loader"
+            }/*,
+            {
+                test: /\.(svg|png|jpg|gif)$/i,
+                loader: "file-loader",
+                options: {
+                    name: "[name].[hash].[ext]",
+                    outputPath: "imgs"
+                }
+            }*/
+        ]
     }
 };
 
